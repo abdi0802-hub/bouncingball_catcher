@@ -57,6 +57,8 @@ private:
         }
         if (frame.empty()) return;
 
+        cv::flip(frame, frame, 1);
+
         if (frame.cols != width_ || frame.rows != height_) {
             cv::resize(frame, frame, cv::Size(width_, height_));
         }
@@ -65,7 +67,7 @@ private:
         header.stamp = this->now();
         header.frame_id = "camera_frame";
 
-        std_msgs::msg::Image::SharedPtr msg =
+        sensor_msgs::msg::Image::SharedPtr msg =
             cv_bridge::CvImage(header,"bgr8",frame).toImageMsg();
 
         pub_image_->publish(*msg);
