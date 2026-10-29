@@ -1,15 +1,15 @@
 <launch>
 
     <node pkg="bouncingball_catcher" exec="camera_node" name="camera_node" output="screen">
-        <param name="source" value="0"/>
+        <param name="source" value="'0'"/>
         <param name="fps" value="30.0"/>
         <param name="width" value="640"/>
         <param name="height" value="480"/>
     </node>
 
     <node pkg="bouncingball_catcher" exec="game_node" name="game_node" output="screen">
-        <param name="hsv_lower" value="[35,100,100]"/>
-        <param name="hsv_upper" value="[85,255,255]"/>
+        <param name="hsv_lower" value="[100,120,70]"/>
+        <param name="hsv_upper" value="[130,255,255]"/>
         <param name="num_balls" value="3"/>
         <param name="hold_duration" value="2.0"/>
         <param name="ball_radius" value="40"/>
