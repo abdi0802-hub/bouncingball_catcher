@@ -199,6 +199,8 @@ private:
 
         sensor_msgs::msg::Image::SharedPtr debug_msg = cv_bridge::CvImage(msg->header,"bgr8",frame).toImageMsg();
         pub_debug_->publish(*debug_msg);
+        cv::imshow("Bouncing Ball Catcher", frame);
+        cv::waitKey(1);
     }
 };
 
